@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Weight in Stones & Pounds</title>
+  <style>
+    body {
+      font-family: system-ui;
+      color: #1f4e79;
+      background: #f8f9fa;
+      padding: 20px;
+    }
+    input {
+      width: 80px;
+      padding: 8px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+    .container {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Enter Your Weight</h2>
+  <p>In Stones and Pounds</p>
+
+  <div class="container">
+    <input type="number" id="stone" min="0" max="40" placeholder="Stones" required>
+    <span>st</span>
+    <input type="number" id="pounds" min="0" max="13" placeholder="Pounds" required>
+    <span>lb</span>
+  </div>
+
+  <p><strong>Total:</strong> <span id="result">0</span> lbs</p>
+
+  <script>
+    function update() {
+      const stone = parseInt(document.getElementById('stone').value) || 0;
+      const pounds = parseInt(document.getElementById('pounds').value) || 0;
+      const total = (stone * 14) + pounds;
+      document.getElementById('result').innerText = total;
+    }
+
+    document.getElementById('stone').addEventListener('input', update);
+    document.getElementById('pounds').addEventListener('input', update);
+  </script>
+
+</body>
+</html>
