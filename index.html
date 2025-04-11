@@ -2,40 +2,75 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Weight in Stones & Pounds</title>
   <style>
     body {
-      font-family: system-ui;
+      font-family: system-ui, sans-serif;
+      background: #ffffff;
+      margin: 0;
+      padding: 30px 25px;
       color: #1f4e79;
-      background: #f8f9fa;
-      padding: 20px;
+      max-width: 400px;
     }
-    input {
-      width: 80px;
-      padding: 8px;
-      border-radius: 6px;
-      border: 1px solid #ccc;
+
+    h3 {
+      font-size: 20px;
+      margin-bottom: 8px;
+      color: #1f4e79;
     }
-    .container {
+
+    .desc {
+      font-size: 14px;
+      margin-bottom: 20px;
+      color: #555;
+    }
+
+    .form-row {
       display: flex;
-      gap: 10px;
       align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    input[type="number"] {
+      width: 90px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 16px;
+    }
+
+    .unit {
+      font-size: 14px;
+      color: #333;
+    }
+
+    .result {
+      font-size: 14px;
+      margin-top: 8px;
+      color: #333;
+    }
+
+    .total {
+      font-weight: bold;
     }
   </style>
 </head>
 <body>
 
-  <h2>Enter Your Weight</h2>
-  <p>In Stones and Pounds</p>
+  <h3>Enter Your Weight</h3>
+  <div class="desc">Use Stones and Pounds, your scroll must be written in truth.</div>
 
-  <div class="container">
+  <div class="form-row">
     <input type="number" id="stone" min="0" max="40" placeholder="Stones" required>
-    <span>st</span>
-    <input type="number" id="pounds" min="0" max="13" placeholder="Pounds" required>
-    <span>lb</span>
+    <span class="unit">st</span>
   </div>
 
-  <p><strong>Total:</strong> <span id="result">0</span> lbs</p>
+  <div class="form-row">
+    <input type="number" id="pounds" min="0" max="13" placeholder="Pounds" required>
+    <span class="unit">lb</span>
+  </div>
+
+  <div class="result">Total: <span class="total" id="result">0</span> lbs</div>
 
   <script>
     function update() {
